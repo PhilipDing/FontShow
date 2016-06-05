@@ -12,6 +12,8 @@
 		99F469921D0469DC00540B25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F469901D0469DC00540B25 /* Main.storyboard */; };
 		99F469941D0469DC00540B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F469931D0469DC00540B25 /* Assets.xcassets */; };
 		99F469971D0469DC00540B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F469951D0469DC00540B25 /* LaunchScreen.storyboard */; };
+		99F4699F1D04798A00540B25 /* FontNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4699E1D04798A00540B25 /* FontNameCell.swift */; };
+		99F469A31D0480CF00540B25 /* FontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F469A21D0480CF00540B25 /* FontName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		99F469931D0469DC00540B25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F469961D0469DC00540B25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F469981D0469DC00540B25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99F4699E1D04798A00540B25 /* FontNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontNameCell.swift; sourceTree = "<group>"; };
+		99F469A21D0480CF00540B25 /* FontName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		99F4698B1D0469DC00540B25 /* FontShow */ = {
 			isa = PBXGroup;
 			children = (
+				99F469A11D0480C300540B25 /* Models */,
+				99F469A01D0479E400540B25 /* Views */,
 				99F4698C1D0469DC00540B25 /* AppDelegate.swift */,
 				99F4698E1D0469DC00540B25 /* ViewController.swift */,
 				99F469901D0469DC00540B25 /* Main.storyboard */,
@@ -62,6 +68,22 @@
 				99F469981D0469DC00540B25 /* Info.plist */,
 			);
 			path = FontShow;
+			sourceTree = "<group>";
+		};
+		99F469A01D0479E400540B25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99F4699E1D04798A00540B25 /* FontNameCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		99F469A11D0480C300540B25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				99F469A21D0480CF00540B25 /* FontName.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +159,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F4698F1D0469DC00540B25 /* ViewController.swift in Sources */,
+				99F469A31D0480CF00540B25 /* FontName.swift in Sources */,
 				99F4698D1D0469DC00540B25 /* AppDelegate.swift in Sources */,
+				99F4699F1D04798A00540B25 /* FontNameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +311,7 @@
 				99F4699D1D0469DC00540B25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
