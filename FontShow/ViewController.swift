@@ -38,6 +38,14 @@ class ViewController: UIViewController {
     
     originalFamilyNames = allFontNames
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "preview" {
+      if let vc = segue.destinationViewController as? PreviewViewController {
+        vc.previewFontNames = allFontNames.flatMap { $0.fontNames }.filter { $0.isChecked }
+      }
+    }
+  }
 }
 
 

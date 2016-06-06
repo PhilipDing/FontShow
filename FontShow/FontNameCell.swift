@@ -9,6 +9,9 @@
 import UIKit
 
 class FontNameCell: UITableViewCell {
-  @IBOutlet var previewTextLabel: UILabel!
-  @IBOutlet var fontNameLabel: UILabel!
+  
+  @IBOutlet weak var containerView: UIView!
+  @IBOutlet weak var fontNameLabel: UILabel!
+  @IBOutlet weak var previewTextLabel: UILabel!
+
 }
