@@ -61,15 +61,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicCell" textLabel="qpa-XC-ZdY" style="IBUITableViewCellStyleDefault" id="kZA-C1-V34">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicCell" textLabel="qpa-XC-ZdY" style="IBUITableViewCellStyleDefault" id="kZA-C1-V34">
                                         <rect key="frame" x="0.0" y="104" width="320" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kZA-C1-V34" id="fUA-Oa-vJL">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="273" height="75.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qpa-XC-ZdY">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="75.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="258" height="75.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,7 +92,7 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmo-8j-MWc">
-                                <rect key="frame" x="256" y="504" width="54" height="54"/>
+                                <rect key="frame" x="256" y="614" width="54" height="54"/>
                                 <color key="backgroundColor" red="0.3411764706" green="0.85490196080000003" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Cmo-8j-MWc" secondAttribute="height" multiplier="1:1" id="aNn-8x-8m9"/>
@@ -110,23 +110,17 @@
                             <constraint firstItem="c9H-Fh-a6O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3CV-wD-oM5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="10" id="DPn-Ph-sdM"/>
                             <constraint firstAttribute="trailing" secondItem="c9H-Fh-a6O" secondAttribute="trailing" id="G3A-G8-H0J"/>
-                            <constraint firstItem="Cmo-8j-MWc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kls-ve-xSM"/>
                             <constraint firstItem="uqq-wo-fib" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lnm-Hz-H6W"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="10" placeholder="YES" id="TS4-YG-cuj"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="-100" id="aan-2K-oCu"/>
                             <constraint firstAttribute="trailing" secondItem="uqq-wo-fib" secondAttribute="trailing" id="bAk-tJ-9CC"/>
                             <constraint firstItem="uqq-wo-fib" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="c8W-r1-xY8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Cmo-8j-MWc" secondAttribute="trailing" constant="10" id="f8P-gT-k4a"/>
                             <constraint firstItem="c9H-Fh-a6O" firstAttribute="top" secondItem="uqq-wo-fib" secondAttribute="bottom" id="hwa-Qj-uYx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c9H-Fh-a6O" secondAttribute="bottom" id="jsH-hx-GMk"/>
                             <constraint firstAttribute="trailing" secondItem="Cmo-8j-MWc" secondAttribute="trailing" constant="10" id="vC6-SD-tLn"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Kls-ve-xSM"/>
-                                <exclude reference="f8P-gT-k4a"/>
                                 <exclude reference="DPn-Ph-sdM"/>
-                                <exclude reference="aan-2K-oCu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">

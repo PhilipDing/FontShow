@@ -62,10 +62,13 @@ class MainViewController: UIViewController {
       do {
         let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
         contents.forEach {
-          let content: NSString = $0
-          let ext = content.pathExtension.lowercaseString
+          let ocContent: NSString = $0
+          let ocPath: NSString = path
+          let ext = ocContent.pathExtension.lowercaseString
           if ext == "ttf" || ext == "otf" || ext == "ttc" {
-            fontNames.append(FontName(name: content.stringByDeletingPathExtension))
+            let fontName = FontName(name: ocContent.stringByDeletingPathExtension)
+            fontName.url = ocPath.stringByAppendingPathComponent($0)
+            fontNames.append(fontName)
           }
         }
       } catch {
@@ -111,7 +114,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     } else {
       cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath)
       cell.textLabel?.text = Constants.DefaultValue
-      cell.textLabel?.font = UIFont(name: fontName.name, size: 15)
+      if indexPath.section == Constants.UserFontIndex {
+        cell.textLabel?.font = UIFont.fontWithURL(fontName.url!, fontSize: 15)
+      } else {
+        cell.textLabel?.font = UIFont(name: fontName.name, size: 15)
+      }
       cell.detailTextLabel?.text = fontName.name
       cell.accessoryType = fontName.isChecked ? .Checkmark : .None
     }

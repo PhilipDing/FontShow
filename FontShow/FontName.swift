@@ -23,6 +23,7 @@ class FontName {
   var name: String
   var isChecked: Bool
   var seletable: Bool
+  var url: String?
   
   init(name: String) {
     self.name = name

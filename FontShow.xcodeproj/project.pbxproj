@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		993C55DC1D092041007BA37B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993C55DB1D092041007BA37B /* Constants.swift */; };
 		997E53211D04887800CBD4B8 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E53201D04887800CBD4B8 /* PreviewViewController.swift */; };
+		99D951A41D09C0B5003C321C /* UIFontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D951A31D09C0B5003C321C /* UIFontExt.swift */; };
 		99F4698D1D0469DC00540B25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4698C1D0469DC00540B25 /* AppDelegate.swift */; };
 		99F4698F1D0469DC00540B25 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4698E1D0469DC00540B25 /* MainViewController.swift */; };
 		99F469921D0469DC00540B25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F469901D0469DC00540B25 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		993C55DB1D092041007BA37B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		997E53201D04887800CBD4B8 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		99D951A31D09C0B5003C321C /* UIFontExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExt.swift; sourceTree = "<group>"; };
 		99F469891D0469DC00540B25 /* FontShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F4698C1D0469DC00540B25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F4698E1D0469DC00540B25 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				993C55DB1D092041007BA37B /* Constants.swift */,
+				99D951A31D09C0B5003C321C /* UIFontExt.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D951A41D09C0B5003C321C /* UIFontExt.swift in Sources */,
 				99F4698F1D0469DC00540B25 /* MainViewController.swift in Sources */,
 				99F469A31D0480CF00540B25 /* FontName.swift in Sources */,
 				99F4698D1D0469DC00540B25 /* AppDelegate.swift in Sources */,
