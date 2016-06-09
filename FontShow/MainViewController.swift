@@ -15,8 +15,8 @@ class MainViewController: UIViewController {
   
   var previewVC: PreviewViewController!
   
-  var allFontNames = [FamilyName]()
   var originalFamilyNames = [FamilyName]()
+  var allFontNames = [FamilyName]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,19 +48,19 @@ class MainViewController: UIViewController {
           let content: NSString = $0
           let ext = content.pathExtension.lowercaseString
           if ext == "ttf" || ext == "otf" || ext == "ttc" {
-            fontNames.append(FontName(name: $0))
+            fontNames.append(FontName(name: content.stringByDeletingPathExtension))
           }
         }
       } catch {
-        
+        NSLog("exception when load third party font size", "")
       }
     }
     
     if fontNames.count == 0 {
-      fontNames.append(FontName(name: NSLocalizedString("Import font from iTunes", comment: ""), isChecked: false, selectable: false))
+      fontNames.append(FontName(name: NSLocalizedString("Import Fonts from iTunes", comment: ""), isChecked: false, seletable: false))
     }
     
-    allFontNames.append(FamilyName(name: NSLocalizedString("User Font", comment: ""), fontNames: fontNames))
+    allFontNames.insert(FamilyName(name: NSLocalizedString("User Font", comment: ""), fontNames: fontNames), atIndex: 0)
   }
   
   func loadAllFonts() {
@@ -71,14 +71,6 @@ class MainViewController: UIViewController {
       allFontNames.append(FamilyName(name: familyName, fontNames: fontNames))
     }
   }
-  
-  //  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  //    if segue.identifier == "preview" {
-  //      if let vc = segue.destinationViewController as? PreviewViewController {
-  //        vc.previewFontNames = allFontNames.flatMap { $0.fontNames }.filter { $0.isChecked }
-  //      }
-  //    }
-  //  }
 }
 
 
@@ -93,12 +85,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
     let fontName = allFontNames[indexPath.section].fontNames[indexPath.row]
-    cell.textLabel?.text = Constants.DefaultValue
-    cell.textLabel?.font = UIFont(name: fontName.name, size: 15)
-    cell.detailTextLabel?.text = fontName.name
-    cell.accessoryType = fontName.isChecked ? .Checkmark : .None
+    let cell: UITableViewCell
+    if !fontName.seletable {
+      cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
+      cell.textLabel?.text = NSLocalizedString("Import Fonts from iTunes", comment: "")
+      cell.selectionStyle = .None
+    } else {
+      cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath)
+      cell.textLabel?.text = Constants.DefaultValue
+      cell.textLabel?.font = UIFont(name: fontName.name, size: 15)
+      cell.detailTextLabel?.text = fontName.name
+      cell.accessoryType = fontName.isChecked ? .Checkmark : .None
+    }
     
     return cell
   }
@@ -107,24 +106,35 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     return allFontNames[section].name
   }
   
-  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 30
+//  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//    return 30
+//  }
+  
+  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let fontName = allFontNames[section]
+    let customView = UIView(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width, height: 30))
+    customView.backgroundColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1)
+    let label = UILabel(frame: customView.frame)
+    label.opaque = false
+    if section == Constants.UserFontIndex {
+      label.textColor = UIColor(red: 35.0/255.0, green: 102.0/255.0, blue: 245.0/255.0, alpha: 1)
+    } else {
+      label.textColor = UIColor(red: 255.0/255.0, green: 54.0/255.0, blue: 94.0/255.0, alpha: 1)
+    }
+    
+    label.font = UIFont.systemFontOfSize(18)
+    label.text = fontName.name
+    customView.addSubview(label)
+    return customView
   }
   
-  //  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-  //    let fontName = allFontNames[section]
-  //    let customView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 30))
-  //    customView.backgroundColor = UIColor.lightGrayColor()
-  //    let label = UILabel(frame: customView.frame)
-  //    label.opaque = false
-  //    label.textColor = UIColor.redColor()
-  //    label.font = UIFont.boldSystemFontOfSize(18)
-  //    label.text = fontName.name
-  //    customView.addSubview(label)
-  //    return customView
-  //  }
+  func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    let fontName = allFontNames[indexPath.section].fontNames[indexPath.row]
+    return fontName.seletable ? indexPath : nil
+  }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
     let fontName = allFontNames[indexPath.section].fontNames[indexPath.row]
     var fontNames = previewVC.previewFontNames
     if fontName.isChecked {
