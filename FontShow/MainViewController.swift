@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   
   var previewVC: PreviewViewController!
+  var previewVCBySegue: PreviewViewController?
   
   var originalFamilyNames = [FamilyName]()
   var allFontNames = [FamilyName]()
@@ -24,7 +25,7 @@ class MainViewController: UIViewController {
     self.loadThirdPartyFonts()
     self.loadAllFonts()
     originalFamilyNames = allFontNames
-    
+
     self.navigationItem.title = NSLocalizedString("Font Show", comment: "")
     searchBar.placeholder = NSLocalizedString("Search", comment: "")
     tableView.estimatedRowHeight = 50
@@ -34,7 +35,23 @@ class MainViewController: UIViewController {
     if let splitVC = self.splitViewController {
       previewVC = (splitVC.viewControllers[splitVC.viewControllers.count - 1] as! UINavigationController).topViewController as? PreviewViewController
     }
-    
+  }
+
+  @IBAction func previewFontNames() {
+    performSegueWithIdentifier("showDetail", sender: self)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDetail" {
+      if let navController = segue.destinationViewController as? UINavigationController {
+        previewVCBySegue = navController.topViewController as? PreviewViewController
+        previewVCBySegue?.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        previewVCBySegue?.navigationItem.leftItemsSupplementBackButton = true
+        previewVCBySegue?.fontSize = previewVC.fontSize
+        previewVCBySegue?.text = previewVC.text
+        previewVCBySegue?.previewFontNames = previewVC.previewFontNames
+      }
+    }
   }
   
   func loadThirdPartyFonts() {
@@ -106,10 +123,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     return allFontNames[section].name
   }
   
-//  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//    return 30
-//  }
-  
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let fontName = allFontNames[section]
     let customView = UIView(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width, height: 30))
@@ -149,6 +162,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     previewVC.previewFontNames = fontNames
+    previewVCBySegue?.previewFontNames = fontNames
     
     if let cell = tableView.cellForRowAtIndexPath(indexPath) {
       cell.accessoryType = cell.accessoryType == .None ? .Checkmark : .None

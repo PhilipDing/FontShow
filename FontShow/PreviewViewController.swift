@@ -12,19 +12,19 @@ class PreviewViewController: UIViewController {
   
   var text: String = Constants.DefaultValue {
     didSet {
-      tableView.reloadData()
+      tableView?.reloadData()
     }
   }
   
   var fontSize: Int = Constants.DefaultFontSize {
     didSet {
-      tableView.reloadData()
+      tableView?.reloadData()
     }
   }
   
   var previewFontNames = [FontName]() {
     didSet {
-      tableView.reloadData()
+      tableView?.reloadData()
     }
   }
   
@@ -35,18 +35,27 @@ class PreviewViewController: UIViewController {
     self.navigationItem.title = NSLocalizedString("Preview", comment: "")
     tableView.estimatedRowHeight = 110
     tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.reloadData()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "settings" {
       if let settingsVC = segue.destinationViewController as? SettingsViewController {
+        settingsVC.popoverPresentationController?.delegate = self
+        settingsVC.modalPresentationStyle = .Popover
         settingsVC.fontSize = fontSize
         settingsVC.text = text
         settingsVC.delegate = self
       }
     }
   }
+}
+
+extension PreviewViewController: UIPopoverPresentationControllerDelegate {
   
+  func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+    return .None
+  }
 }
 
 extension PreviewViewController: UITableViewDelegate, UITableViewDataSource {

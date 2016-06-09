@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -90,23 +91,62 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lhK-1f-ad3"/>
                                 </connections>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmo-8j-MWc">
+                                <rect key="frame" x="256" y="504" width="54" height="54"/>
+                                <color key="backgroundColor" red="0.3411764706" green="0.85490196080000003" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cmo-8j-MWc" secondAttribute="height" multiplier="1:1" id="aNn-8x-8m9"/>
+                                </constraints>
+                                <state key="normal" title="Preview">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="previewFontNames" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXE-24-90D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c9H-Fh-a6O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3CV-wD-oM5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="10" id="DPn-Ph-sdM"/>
                             <constraint firstAttribute="trailing" secondItem="c9H-Fh-a6O" secondAttribute="trailing" id="G3A-G8-H0J"/>
+                            <constraint firstItem="Cmo-8j-MWc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kls-ve-xSM"/>
                             <constraint firstItem="uqq-wo-fib" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lnm-Hz-H6W"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="10" placeholder="YES" id="TS4-YG-cuj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="-100" id="aan-2K-oCu"/>
                             <constraint firstAttribute="trailing" secondItem="uqq-wo-fib" secondAttribute="trailing" id="bAk-tJ-9CC"/>
                             <constraint firstItem="uqq-wo-fib" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="c8W-r1-xY8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cmo-8j-MWc" secondAttribute="trailing" constant="10" id="f8P-gT-k4a"/>
                             <constraint firstItem="c9H-Fh-a6O" firstAttribute="top" secondItem="uqq-wo-fib" secondAttribute="bottom" id="hwa-Qj-uYx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c9H-Fh-a6O" secondAttribute="bottom" id="jsH-hx-GMk"/>
+                            <constraint firstAttribute="trailing" secondItem="Cmo-8j-MWc" secondAttribute="trailing" constant="10" id="vC6-SD-tLn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Kls-ve-xSM"/>
+                                <exclude reference="f8P-gT-k4a"/>
+                                <exclude reference="DPn-Ph-sdM"/>
+                                <exclude reference="aan-2K-oCu"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="DPn-Ph-sdM"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="bAk-tJ-9CC"/>
+                                <include reference="aan-2K-oCu"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="EVO-gC-Ys0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="searchBar" destination="uqq-wo-fib" id="7fW-qu-yhz"/>
                         <outlet property="tableView" destination="c9H-Fh-a6O" id="dRi-u2-uC5"/>
+                        <segue destination="6He-Zs-ANa" kind="showDetail" identifier="showDetail" id="Ugg-h6-u3y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -217,7 +257,7 @@
                     <navigationItem key="navigationItem" id="NiT-Kk-Ytn">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="AMe-Up-D01">
                             <connections>
-                                <segue destination="aMV-zt-NOa" kind="popoverPresentation" identifier="settings" popoverAnchorBarButtonItem="AMe-Up-D01" id="gSd-3h-MBK">
+                                <segue destination="aMV-zt-NOa" kind="popoverPresentation" identifier="settings" popoverAnchorBarButtonItem="AMe-Up-D01" id="Pmk-Ib-avL">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -334,6 +374,7 @@
                             <constraint firstItem="JeM-CP-uvJ" firstAttribute="bottom" secondItem="UfF-kB-0Fq" secondAttribute="top" id="yHX-bQ-j4w"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AE1-oL-MFc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="fontSizeLabel" destination="SHw-e1-Iwe" id="snc-Ci-D5w"/>
@@ -344,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9f-tT-8fj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="367"/>
+            <point key="canvasLocation" x="1500" y="367"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oOc-kg-rvj">
@@ -385,4 +426,7 @@
             <point key="canvasLocation" x="681" y="367"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ugg-h6-u3y"/>
+    </inferredMetricsTieBreakers>
 </document>
