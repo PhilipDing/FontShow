@@ -10,6 +10,18 @@ import UIKit
 
 class PreviewViewController: UIViewController {
   
+  var text: String = Constants.DefaultValue {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+  
+  var fontSize: Int = Constants.DefaultFontSize {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+  
   var previewFontNames = [FontName]() {
     didSet {
       tableView.reloadData()
@@ -23,6 +35,16 @@ class PreviewViewController: UIViewController {
     self.navigationItem.title = NSLocalizedString("Preview", comment: "")
     tableView.estimatedRowHeight = 110
     tableView.rowHeight = UITableViewAutomaticDimension
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "settings" {
+      if let settingsVC = segue.destinationViewController as? SettingsViewController {
+        settingsVC.fontSize = fontSize
+        settingsVC.text = text
+        settingsVC.delegate = self
+      }
+    }
   }
   
 }
@@ -41,8 +63,19 @@ extension PreviewViewController: UITableViewDelegate, UITableViewDataSource {
     cell.containerView.layer.borderWidth = 1
     let fontName = previewFontNames[indexPath.row]
     cell.fontNameLabel.text = fontName.name
-    cell.previewTextLabel.text = Constants.DefaultValue
+    cell.previewTextLabel.text = text
+    cell.previewTextLabel.font = UIFont(name: fontName.name, size: CGFloat(fontSize))
     
     return cell
+  }
+}
+
+extension PreviewViewController: SettingsViewControllerDelegate {
+  func fontSizeDidChange(viewController: SettingsViewController) {
+    fontSize = viewController.fontSize
+  }
+
+  func textDidChange(viewController: SettingsViewController) {
+    text = viewController.text
   }
 }

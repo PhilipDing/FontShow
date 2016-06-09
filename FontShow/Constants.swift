@@ -9,6 +9,7 @@
 import Foundation
 
 struct Constants {
+  static let DefaultFontSize = 20
   static let DefaultValue = "Hello World 中文样式"
   static let UserFontIndex = 0
 }
