@@ -73,7 +73,12 @@ extension PreviewViewController: UITableViewDelegate, UITableViewDataSource {
     let fontName = previewFontNames[indexPath.row]
     cell.fontNameLabel.text = fontName.name
     cell.previewTextLabel.text = text
-    cell.previewTextLabel.font = UIFont(name: fontName.name, size: CGFloat(fontSize))
+    
+    if fontName.url != nil {
+      cell.previewTextLabel.font = UIFont.fontWithURL(fontName.url!, fontSize: CGFloat(fontSize))
+    } else {
+      cell.previewTextLabel.font = UIFont(name: fontName.name, size: CGFloat(fontSize))
+    }
     
     return cell
   }
