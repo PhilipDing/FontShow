@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
   
   var originalFamilyNames = [FamilyName]()
   var allFontNames = [FamilyName]()
+  let connectionManager = ConnectionManager.sharedManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,7 +26,7 @@ class MainViewController: UIViewController {
     self.loadThirdPartyFonts()
     self.loadAllFonts()
     originalFamilyNames = allFontNames
-
+    
     self.navigationItem.title = NSLocalizedString("Font Show", comment: "")
     searchBar.placeholder = NSLocalizedString("Search", comment: "")
     tableView.estimatedRowHeight = 50
@@ -36,7 +37,7 @@ class MainViewController: UIViewController {
       previewVC = (splitVC.viewControllers[splitVC.viewControllers.count - 1] as! UINavigationController).topViewController as? PreviewViewController
     }
   }
-
+  
   @IBAction func previewFontNames() {
     performSegueWithIdentifier("showDetail", sender: self)
   }
@@ -53,34 +54,63 @@ class MainViewController: UIViewController {
       }
     }
   }
+}
+
+// MARK: PRIVATE METHOD
+extension MainViewController {
+  func loadThirdPartyFonts(path: String) -> [FontName] {
+    var fontNames = [FontName]()
+    
+    do {
+      let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
+      contents.forEach {
+        let ocContent: NSString = $0
+        let ocPath: NSString = path
+        let ext = ocContent.pathExtension.lowercaseString
+        if ext == "ttf" || ext == "otf" || ext == "ttc" {
+          let fontName = FontName(name: ocContent.stringByDeletingPathExtension)
+          fontName.url = ocPath.stringByAppendingPathComponent($0)
+          fontNames.append(fontName)
+        }
+      }
+    } catch {
+      NSLog("exception when load third party font size", "")
+    }
+    
+    
+    return fontNames
+  }
   
   func loadThirdPartyFonts() {
     var fontNames = [FontName]()
     
-    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-    if let path = paths.first {
-      do {
-        let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
-        contents.forEach {
-          let ocContent: NSString = $0
-          let ocPath: NSString = path
-          let ext = ocContent.pathExtension.lowercaseString
-          if ext == "ttf" || ext == "otf" || ext == "ttc" {
-            let fontName = FontName(name: ocContent.stringByDeletingPathExtension)
-            fontName.url = ocPath.stringByAppendingPathComponent($0)
-            fontNames.append(fontName)
-          }
-        }
-      } catch {
-        NSLog("exception when load third party font size", "")
-      }
+    // load files from itunes
+    let itunesPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+    if let itunesPath = itunesPaths.first {
+      fontNames += loadThirdPartyFonts(itunesPath)
+    }
+    
+    // load files form wifi
+    var wifiPath: NSString? = NSBundle.mainBundle().pathForResource("index", ofType: "html", inDirectory: "web")
+    wifiPath = wifiPath?.stringByDeletingLastPathComponent
+    wifiPath = wifiPath?.stringByAppendingPathComponent("upload")
+    
+    print(wifiPath)
+    if let wifiPath = wifiPath as? String {
+      fontNames += loadThirdPartyFonts(wifiPath)
     }
     
     if fontNames.count == 0 {
-      fontNames.append(FontName(name: NSLocalizedString("Import Fonts from iTunes", comment: ""), isChecked: false, seletable: false))
+      fontNames.append(FontName(name: NSLocalizedString("Import Fonts from iTunes or Wifi", comment: ""), isChecked: false, seletable: false))
     }
     
     allFontNames.insert(FamilyName(name: NSLocalizedString("User Font", comment: ""), fontNames: fontNames), atIndex: 0)
+  }
+  
+  func loadThirdPartyFontsAndReloadTableData() {
+    allFontNames.removeFirst()
+    loadThirdPartyFonts()
+    tableView.reloadData()
   }
   
   func loadAllFonts() {
@@ -93,7 +123,7 @@ class MainViewController: UIViewController {
   }
 }
 
-
+// MARK: TABLE VIEW DELEGATE & DATASOURCE
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -179,6 +209,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
   }
 }
 
+// MARK: SEEARCH BAR DELEGATE
 extension MainViewController: UISearchBarDelegate {
   func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
     
@@ -196,24 +227,29 @@ extension MainViewController: UISearchBarDelegate {
   }
 }
 
+// MARK: NAVIGATION BAR ACTION
+extension MainViewController {
+  
+  @IBAction func reload() {
+    self.loadThirdPartyFontsAndReloadTableData()
+  }
+  
+  @IBAction func startHttpServer() {
+    
+    let docURL: NSString? = NSBundle.mainBundle().pathForResource("index", ofType: "html", inDirectory: "web")
+    if let docURL = docURL {
+      self.connectionManager.startWithDocURL(docURL.stringByDeletingLastPathComponent, port: Constants.Port)
+    }
+    
+    let ip = DeviceInfo.ipAdress() + ": \(Constants.Port)"
+    let message = "上传过程中请勿离开此页或锁屏 \r\n 在电脑浏览器地址栏输入 \r\n \(ip)"
+    let alert = UIAlertController(title: NSLocalizedString("Wifi Uploads", comment: ""), message: message, preferredStyle: .Alert)
+    let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default) { action in
+      self.connectionManager.stop()
+      self.loadThirdPartyFontsAndReloadTableData()
+    }
+    alert.addAction(action)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    self.presentViewController(alert, animated: true, completion: nil)
+  }
+}
