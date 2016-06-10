@@ -74,7 +74,7 @@ extension MainViewController {
         }
       }
     } catch {
-      NSLog("exception when load third party font size", "")
+      NSLog("exception when load third party font size from \(path)")
     }
     
     
@@ -85,17 +85,13 @@ extension MainViewController {
     var fontNames = [FontName]()
     
     // load files from itunes
-    let itunesPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-    if let itunesPath = itunesPaths.first {
+    if let itunesPath = Constants.DocumentsPath {
       fontNames += loadThirdPartyFonts(itunesPath)
     }
     
     // load files form wifi
-    var wifiPath: NSString? = NSBundle.mainBundle().pathForResource("index", ofType: "html", inDirectory: "web")
-    wifiPath = wifiPath?.stringByDeletingLastPathComponent
+    var wifiPath: NSString? = Constants.DocumentsPath
     wifiPath = wifiPath?.stringByAppendingPathComponent("upload")
-    
-    print(wifiPath)
     if let wifiPath = wifiPath as? String {
       fontNames += loadThirdPartyFonts(wifiPath)
     }
@@ -195,7 +191,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
       }
     } else {
       fontName.isChecked = true
-      fontNames.append(fontName)
+      let exits = fontNames.contains { $0.name == fontName.name && $0.url == fontName.url }
+      if !exits {
+        fontNames.append(fontName)
+      }
     }
     
     previewVC.previewFontNames = fontNames

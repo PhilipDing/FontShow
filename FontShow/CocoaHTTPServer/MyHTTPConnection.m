@@ -9,6 +9,7 @@
 #import "MultipartMessageHeaderField.h"
 #import "HTTPDynamicFileResponse.h"
 #import "HTTPFileResponse.h"
+#import "FontShow-swift.h"
 
 // Log levels : off, error, warn, info, verbose
 // Other flags: trace
@@ -20,6 +21,11 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
  **/
 
 @implementation MyHTTPConnection
+
+// MARK: PRIVATE METHOD
+- (NSString *)documentPath {
+  return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true) firstObject];
+}
 
 - (BOOL)supportsMethod:(NSString *)method atPath:(NSString *)path
 {
@@ -105,7 +111,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
   }
   if( [method isEqualToString:@"GET"] && [path hasPrefix:@"/upload/"] ) {
     // let download the uploaded files
-    return [[HTTPFileResponse alloc] initWithFilePath: [[config documentRoot] stringByAppendingString:path] forConnection:self];
+    return [[HTTPFileResponse alloc] initWithFilePath: [[[self documentPath] stringByAppendingPathComponent: @"upload"] stringByAppendingString:path] forConnection:self];
   }
   
   return [super httpResponseForMethod:method URI:path];
@@ -135,7 +141,6 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 //-----------------------------------------------------------------
 #pragma mark multipart form data parser delegate
 
-
 - (void) processStartOfPartWithHeader:(MultipartMessageHeader*) header {
   // in this sample, we are not interested in parts, other then file parts.
   // check content disposition to find out filename
@@ -148,7 +153,8 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
     // an empty form sent. we won't handle it.
     return;
   }
-  NSString* uploadDirPath = [[config documentRoot] stringByAppendingPathComponent:@"upload"];
+  
+  NSString* uploadDirPath = [[self documentPath] stringByAppendingPathComponent:@"upload"];
   
   BOOL isDir = YES;
   if (![[NSFileManager defaultManager]fileExistsAtPath:uploadDirPath isDirectory:&isDir ]) {
@@ -161,14 +167,15 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
   }
   else {
     HTTPLogVerbose(@"Saving file to %@", filePath);
-    if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:nil]) {
-      HTTPLogError(@"Could not create directory at path: %@", filePath);
+    NSError *error;
+    if(![[NSFileManager defaultManager] createDirectoryAtPath:uploadDirPath withIntermediateDirectories:true attributes:nil error:&error]) {
+      HTTPLogError(@"Could not create directory at path: %@, error is %@", filePath, error) ;
     }
     if(![[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil]) {
       HTTPLogError(@"Could not create file at path: %@", filePath);
     }
     storeFile = [NSFileHandle fileHandleForWritingAtPath:filePath];
-    [uploadedFiles addObject: [NSString stringWithFormat:@"/upload/%@", filename]];
+    [uploadedFiles addObject: filePath];
   }
 }
 

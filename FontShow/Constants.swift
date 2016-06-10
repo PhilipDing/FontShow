@@ -13,4 +13,11 @@ struct Constants {
   static let DefaultValue = "Hello World 中文样式"
   static let UserFontIndex = 0
   static let Port: UInt16 = 5506
+  
+  static var DocumentsPath: String? {
+    get {
+      let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+      return paths.first
+    }
+  }
 }
