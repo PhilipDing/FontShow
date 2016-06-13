@@ -23,19 +23,16 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.loadThirdPartyFonts()
-    self.loadAllFonts()
-    originalFamilyNames = allFontNames
-    
     self.navigationItem.title = NSLocalizedString("Font Show", comment: "")
     searchBar.placeholder = NSLocalizedString("Search", comment: "")
-    tableView.estimatedRowHeight = 50
+    tableView.estimatedRowHeight = 90
     tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.reloadData()
     
     if let splitVC = self.splitViewController {
       previewVC = (splitVC.viewControllers[splitVC.viewControllers.count - 1] as! UINavigationController).topViewController as? PreviewViewController
     }
+    
+    loadFontsAndReloadTableData()
   }
   
   @IBAction func previewFontNames() {
@@ -100,27 +97,40 @@ extension MainViewController {
       fontNames.append(FontName(name: NSLocalizedString("Import Fonts from iTunes or Wifi", comment: ""), isChecked: false, seletable: false))
     }
     
-    allFontNames.insert(FamilyName(name: NSLocalizedString("User Font", comment: ""), fontNames: fontNames), atIndex: 0)
+    originalFamilyNames.insert(FamilyName(name: NSLocalizedString("User Font", comment: ""), fontNames: fontNames), atIndex: 0)
   }
   
-  func loadThirdPartyFontsAndReloadTableData() {
-    allFontNames.removeFirst()
-    loadThirdPartyFonts()
-    tableView.reloadData()
-  }
-  
-  func loadAllFonts() {
+  func loadSystemFonts() {
     let familyNames = UIFont.familyNames().sort()
     for familyName in familyNames {
       let temp = UIFont.fontNamesForFamilyName(familyName)
       let fontNames = temp.map { return FontName(name: $0) }
-      allFontNames.append(FamilyName(name: familyName, fontNames: fontNames))
+      originalFamilyNames.append(FamilyName(name: familyName, fontNames: fontNames))
     }
+  }
+  
+  func loadFontsAndReloadTableData() {
+    originalFamilyNames.removeAll()
+    allFontNames.removeAll()
+    
+    self.loadThirdPartyFonts()
+    self.loadSystemFonts()
+    filterFonts(searchBar.text)
+    
+    tableView.reloadData()
   }
 }
 
 // MARK: TABLE VIEW DELEGATE & DATASOURCE
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  struct TableConfiguration {
+    static let SectionHeight: CGFloat = 44
+    static let SectionHeaderBackgroundColor = UIColor(red: 222.0/255.0, green: 222.0/255.0, blue: 222.0/255.0, alpha: 1)
+    static let SectionHeaderUserFontTextColor = UIColor(red: 35.0/255.0, green: 102.0/255.0, blue: 245.0/255.0, alpha: 1)
+    static let SectionHeaderSystemFontTextColor = UIColor(red: 255.0/255.0, green: 54.0/255.0, blue: 94.0/255.0, alpha: 1)
+    static let SubtitleCellPreviewFontSize: CGFloat = 17
+  }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return allFontNames.count
@@ -132,33 +142,26 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let fontName = allFontNames[indexPath.section].fontNames[indexPath.row]
-    let cell: UITableViewCell
+    let cell: FontNameCell
     if !fontName.seletable {
-      cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
-      cell.textLabel?.text = NSLocalizedString("Import Fonts from iTunes", comment: "")
+      cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath) as! FontNameCell
+      cell.previewTextLabel.text = NSLocalizedString("Import Fonts from iTunes or Wifi", comment: "")
       cell.selectionStyle = .None
     } else {
-      cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath)
-      cell.textLabel?.text = Constants.DefaultValue
-      if indexPath.section == Constants.UserFontIndex {
-        cell.textLabel?.font = UIFont.fontWithURL(fontName.url!, fontSize: 15)
+      cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath) as! FontNameCell
+      cell.previewTextLabel.text = Constants.DefaultValue
+      
+      if let fontUrl = fontName.url {
+        cell.previewTextLabel.font = UIFont.fontWithURL(fontUrl, fontSize: TableConfiguration.SubtitleCellPreviewFontSize)
       } else {
-        cell.textLabel?.font = UIFont(name: fontName.name, size: 15)
+        cell.previewTextLabel.font = UIFont(name: fontName.name, size: TableConfiguration.SubtitleCellPreviewFontSize)
       }
-      cell.detailTextLabel?.text = fontName.name
+      
+      cell.fontNameLabel.text = fontName.name
       cell.accessoryType = fontName.isChecked ? .Checkmark : .None
     }
     
     return cell
-  }
-  
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return allFontNames[section].name
-  }
-  
-  struct TableConfiguration {
-    static let SectionHeight: CGFloat = 44
-    static let CellHeight: CGFloat = 70
   }
   
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -167,19 +170,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let fontName = allFontNames[section]
+
     let customView = UIView(frame: CGRect(x: 25, y: 0, width: tableView.bounds.width, height: TableConfiguration.SectionHeight))
-    customView.backgroundColor = UIColor(red: 222.0/255.0, green: 222.0/255.0, blue: 222.0/255.0, alpha: 1)
+    customView.backgroundColor = TableConfiguration.SectionHeaderBackgroundColor
+    
     let label = UILabel(frame: customView.frame)
     label.opaque = false
-    if section == Constants.UserFontIndex {
-      label.textColor = UIColor(red: 35.0/255.0, green: 102.0/255.0, blue: 245.0/255.0, alpha: 1)
-    } else {
-      label.textColor = UIColor(red: 255.0/255.0, green: 54.0/255.0, blue: 94.0/255.0, alpha: 1)
-    }
-    
-    label.font = UIFont.systemFontOfSize(18)
+    label.textColor = fontName.isUserFont ? TableConfiguration.SectionHeaderUserFontTextColor : TableConfiguration.SectionHeaderSystemFontTextColor
+    label.font = UIFont(name: "Avenir", size: 18)
     label.text = fontName.name
     customView.addSubview(label)
+    
     return customView
   }
   
@@ -219,18 +220,22 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: SEEARCH BAR DELEGATE
 extension MainViewController: UISearchBarDelegate {
-  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    
-    if searchText.isEmpty {
-      allFontNames = originalFamilyNames
-    } else {
+  
+  func filterFonts(searchText: String?) {
+    if let searchText = searchText where !searchText.isEmpty {
       allFontNames = originalFamilyNames.filter() {
         return $0.name.lowercaseString.containsString(searchText.lowercaseString)
           || $0.fontNames.contains({ (fontName) -> Bool in
             fontName.name.lowercaseString.containsString(searchText.lowercaseString)
           })
       }
+    } else {
+      allFontNames = originalFamilyNames
     }
+  }
+  
+  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    filterFonts(searchText)
     tableView.reloadData()
   }
 }
@@ -239,7 +244,7 @@ extension MainViewController: UISearchBarDelegate {
 extension MainViewController {
   
   @IBAction func reload() {
-    self.loadThirdPartyFontsAndReloadTableData()
+    self.loadFontsAndReloadTableData()
   }
   
   @IBAction func startHttpServer() {
@@ -249,14 +254,17 @@ extension MainViewController {
       self.connectionManager.startWithDocURL(docURL.stringByDeletingLastPathComponent, port: Constants.Port)
     }
     
-    let ip = DeviceInfo.ipAdress() + ": \(Constants.Port)"
-    let message = "上传过程中请勿离开此页或锁屏 \r\n 在电脑浏览器地址栏输入 \r\n \(ip)"
-    let alert = UIAlertController(title: NSLocalizedString("Wifi Uploads", comment: ""), message: message, preferredStyle: .Alert)
+    let ipAddress = DeviceInfo.ipAdress() + ": \(Constants.Port)"
+    let message = String(format: NSLocalizedString("Wifi Upload Message", comment: ""), ipAddress)
+
+    let alert = UIAlertController(title: NSLocalizedString("Wifi Upload", comment: ""), message: message, preferredStyle: .Alert)
     let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default) { action in
       self.connectionManager.stop()
-      self.loadThirdPartyFontsAndReloadTableData()
+      self.loadFontsAndReloadTableData()
     }
     alert.addAction(action)
+    
+    print(alert.view.subviews)
 
     self.presentViewController(alert, animated: true, completion: nil)
   }

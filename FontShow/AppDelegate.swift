@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func customizeUI() {
     UIApplication.sharedApplication().statusBarStyle = .LightContent
+    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
   }
 }
 

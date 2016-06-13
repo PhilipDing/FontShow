@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  FontShow
+
+  Created by 丁诚 on 16/6/13.
+  Copyright © 2016年 philipding. All rights reserved.
+*/
+
+"Import Fonts from iTunes or Wifi" = "Import Fonts from iTunes or Wifi";
+
+"Font Show" = "Font Show";
+
+"Search" = "Search";
+
+"Wifi Upload" = "Wifi Upload";
+
+"Wifi Upload Message" = "Please don\'t leave this page, or lock screen during upload fonts \r\n \r\nEnter following address in browser\n\r\n%@";
+
+"OK" = "OK";
+
+"User Font" = "User Font";

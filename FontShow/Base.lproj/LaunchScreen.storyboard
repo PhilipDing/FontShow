@@ -17,16 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="voX-Vi-xCP">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="voX-Vi-xCP">
+                                <rect key="frame" x="-10" y="-10" width="340" height="588"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="voX-Vi-xCP" secondAttribute="bottom" id="Qfa-PY-dUA"/>
-                            <constraint firstItem="voX-Vi-xCP" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Sse-8r-H7Q"/>
-                            <constraint firstItem="voX-Vi-xCP" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="WTs-0m-osQ"/>
-                            <constraint firstAttribute="trailing" secondItem="voX-Vi-xCP" secondAttribute="trailing" id="cVF-aR-rLS"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="voX-Vi-xCP" secondAttribute="bottom" constant="-10" id="Qfa-PY-dUA"/>
+                            <constraint firstItem="voX-Vi-xCP" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-10" id="Sse-8r-H7Q"/>
+                            <constraint firstItem="voX-Vi-xCP" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-30" id="WTs-0m-osQ"/>
+                            <constraint firstAttribute="trailing" secondItem="voX-Vi-xCP" secondAttribute="trailing" constant="-10" id="cVF-aR-rLS"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

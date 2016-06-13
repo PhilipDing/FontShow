@@ -12,6 +12,10 @@ import Foundation
 class FamilyName {
   var name: String
   var fontNames: [FontName]
+  var isUserFont: Bool {
+    let exist = fontNames.contains { $0.url == nil && $0.seletable == true }
+    return !exist
+  }
   
   init(name: String, fontNames: [FontName]) {
     self.name = name

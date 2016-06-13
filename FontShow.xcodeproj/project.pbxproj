@@ -11,6 +11,7 @@
 		997E53211D04887800CBD4B8 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E53201D04887800CBD4B8 /* PreviewViewController.swift */; };
 		99D951A41D09C0B5003C321C /* UIFontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D951A31D09C0B5003C321C /* UIFontExt.swift */; };
 		99E0CBD11D0EE7B7001E5BD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99E0CBD31D0EE7B7001E5BD8 /* InfoPlist.strings */; };
+		99E0CBD71D0F0BD8001E5BD8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99E0CBD91D0F0BD8001E5BD8 /* Localizable.strings */; };
 		99F4698D1D0469DC00540B25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4698C1D0469DC00540B25 /* AppDelegate.swift */; };
 		99F4698F1D0469DC00540B25 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4698E1D0469DC00540B25 /* MainViewController.swift */; };
 		99F469921D0469DC00540B25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F469901D0469DC00540B25 /* Main.storyboard */; };
@@ -60,6 +61,8 @@
 		99D951A31D09C0B5003C321C /* UIFontExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExt.swift; sourceTree = "<group>"; };
 		99E0CBD21D0EE7B7001E5BD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		99E0CBD41D0EE7C7001E5BD8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		99E0CBD81D0F0BD8001E5BD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		99E0CBDA1D0F0BDF001E5BD8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		99F469891D0469DC00540B25 /* FontShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F4698C1D0469DC00540B25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F4698E1D0469DC00540B25 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 				99F469981D0469DC00540B25 /* Info.plist */,
 				99F9FCE21D0AD38200ADADB8 /* FontShow-Bridging-Header.h */,
 				99E0CBD31D0EE7B7001E5BD8 /* InfoPlist.strings */,
+				99E0CBD91D0F0BD8001E5BD8 /* Localizable.strings */,
 			);
 			path = FontShow;
 			sourceTree = "<group>";
@@ -413,6 +417,7 @@
 				99E0CBD11D0EE7B7001E5BD8 /* InfoPlist.strings in Resources */,
 				99F9FD561D0AEFB800ADADB8 /* About.txt in Resources */,
 				99F469971D0469DC00540B25 /* LaunchScreen.storyboard in Resources */,
+				99E0CBD71D0F0BD8001E5BD8 /* Localizable.strings in Resources */,
 				99F469941D0469DC00540B25 /* Assets.xcassets in Resources */,
 				99F469921D0469DC00540B25 /* Main.storyboard in Resources */,
 				99F9FD601D0AEFB800ADADB8 /* README.txt in Resources */,
@@ -479,6 +484,15 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		99E0CBD91D0F0BD8001E5BD8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99E0CBD81D0F0BD8001E5BD8 /* en */,
+				99E0CBDA1D0F0BDF001E5BD8 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		99F469901D0469DC00540B25 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -535,7 +549,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -575,7 +589,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "FontShow/FontShow-Bridging-Header.h";
