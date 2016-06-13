@@ -156,10 +156,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     return allFontNames[section].name
   }
   
+  struct TableConfiguration {
+    static let SectionHeight: CGFloat = 44
+    static let CellHeight: CGFloat = 70
+  }
+  
+  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return TableConfiguration.SectionHeight
+  }
+  
   func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let fontName = allFontNames[section]
-    let customView = UIView(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width, height: 30))
-    customView.backgroundColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1)
+    let customView = UIView(frame: CGRect(x: 25, y: 0, width: tableView.bounds.width, height: TableConfiguration.SectionHeight))
+    customView.backgroundColor = UIColor(red: 222.0/255.0, green: 222.0/255.0, blue: 222.0/255.0, alpha: 1)
     let label = UILabel(frame: customView.frame)
     label.opaque = false
     if section == Constants.UserFontIndex {

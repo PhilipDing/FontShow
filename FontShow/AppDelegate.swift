@@ -20,7 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     navC.topViewController?.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem()
     splitVC.delegate = self
     
+    customizeUI()
+    
     return true
+  }
+  
+  func customizeUI() {
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
   }
 }
 
