@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let splitVC = self.window?.rootViewController as! UISplitViewController
     let navC = splitVC.viewControllers[splitVC.viewControllers.count - 1] as! UINavigationController
     navC.topViewController?.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem()
+    navC.topViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
     splitVC.delegate = self
     
     customizeUI()

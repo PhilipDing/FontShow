@@ -47,13 +47,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byx-dv-dJm">
                                                     <rect key="frame" x="20" y="16" width="280" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="font name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKz-lb-ckp">
-                                                    <rect key="frame" x="20" y="54" width="280" height="19.5"/>
+                                                    <rect key="frame" x="20" y="54" width="280" height="20"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -82,7 +82,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import from iTunes or Wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDg-9L-iK6">
                                                     <rect key="frame" x="20" y="8" width="280" height="58.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -196,31 +196,32 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fontNameCell" rowHeight="110" id="KLR-aR-mfF" customClass="FontNameCell" customModule="FontShow" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="110"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fontNameCell" rowHeight="130" id="KLR-aR-mfF" customClass="FontNameCell" customModule="FontShow" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KLR-aR-mfF" id="LZi-FL-GSc">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unC-7r-lib">
-                                                    <rect key="frame" x="16" y="16" width="288" height="78"/>
+                                                    <rect key="frame" x="16" y="16" width="288" height="98"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU5-NG-raE">
-                                                            <rect key="frame" x="0.0" y="6" width="288" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <rect key="frame" x="0.0" y="8" width="288" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                            <color key="textColor" red="1" green="0.21176470589999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vR8-Uu-zqo">
-                                                            <rect key="frame" x="0.0" y="29" width="288" height="1"/>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <rect key="frame" x="0.0" y="36.5" width="288" height="1"/>
+                                                            <color key="backgroundColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="RdV-DD-dcp"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku1-Mj-cml">
-                                                            <rect key="frame" x="10" y="42" width="268" height="24"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku1-Mj-cml">
+                                                            <rect key="frame" x="10" y="49.5" width="268" height="40.5"/>
+                                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -228,27 +229,17 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="ku1-Mj-cml" firstAttribute="top" secondItem="vR8-Uu-zqo" secondAttribute="bottom" constant="12" id="4Rv-W3-LWT"/>
                                                         <constraint firstAttribute="trailing" secondItem="vR8-Uu-zqo" secondAttribute="trailing" id="6QR-Sz-E10"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ku1-Mj-cml" secondAttribute="bottom" constant="12" id="9ve-kV-Xwl"/>
                                                         <constraint firstItem="ku1-Mj-cml" firstAttribute="leading" secondItem="unC-7r-lib" secondAttribute="leading" constant="10" id="DTm-kR-BLd"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ku1-Mj-cml" secondAttribute="bottom" priority="999" constant="12" id="FmC-Mk-kBm"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ku1-Mj-cml" secondAttribute="bottom" constant="8" id="WxX-Vl-xvT"/>
                                                         <constraint firstAttribute="trailing" secondItem="TU5-NG-raE" secondAttribute="trailing" id="XIv-De-cFq"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="78" id="Xjf-d6-tA0"/>
                                                         <constraint firstItem="vR8-Uu-zqo" firstAttribute="leading" secondItem="unC-7r-lib" secondAttribute="leading" id="XtT-XD-Rf5"/>
-                                                        <constraint firstItem="vR8-Uu-zqo" firstAttribute="top" secondItem="TU5-NG-raE" secondAttribute="bottom" constant="6" id="bRb-im-HP5"/>
+                                                        <constraint firstItem="vR8-Uu-zqo" firstAttribute="top" secondItem="TU5-NG-raE" secondAttribute="bottom" constant="8" id="bRb-im-HP5"/>
                                                         <constraint firstItem="TU5-NG-raE" firstAttribute="leading" secondItem="unC-7r-lib" secondAttribute="leading" id="bl6-Ry-2ib"/>
-                                                        <constraint firstItem="ku1-Mj-cml" firstAttribute="centerY" secondItem="unC-7r-lib" secondAttribute="centerY" constant="15" id="dE5-dw-JGH"/>
-                                                        <constraint firstItem="ku1-Mj-cml" firstAttribute="top" secondItem="vR8-Uu-zqo" secondAttribute="bottom" constant="12" id="jfR-rm-kzU"/>
-                                                        <constraint firstItem="TU5-NG-raE" firstAttribute="top" secondItem="unC-7r-lib" secondAttribute="top" constant="6" id="kmh-nF-rxd"/>
-                                                        <constraint firstItem="ku1-Mj-cml" firstAttribute="top" secondItem="vR8-Uu-zqo" secondAttribute="bottom" priority="999" constant="12" id="q75-vf-akA"/>
+                                                        <constraint firstItem="TU5-NG-raE" firstAttribute="top" secondItem="unC-7r-lib" secondAttribute="top" constant="8" id="kmh-nF-rxd"/>
                                                         <constraint firstAttribute="trailing" secondItem="ku1-Mj-cml" secondAttribute="trailing" constant="10" id="u6M-kg-86z"/>
                                                     </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="9ve-kV-Xwl"/>
-                                                            <exclude reference="jfR-rm-kzU"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -321,7 +312,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMu-rW-UzM">
                                                 <rect key="frame" x="146" y="20" width="28" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.37647058820000001" green="0.1176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="0.21176470589999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello World 中文样式" translatesAutoresizingMaskIntoConstraints="NO" id="SPo-Vp-J1M">
@@ -330,8 +321,14 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="xCj-jX-99f"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardAppearance="alert"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="aMV-zt-NOa" id="8zZ-mF-kil"/>
                                                 </connections>
@@ -339,13 +336,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHw-e1-Iwe">
                                                 <rect key="frame" x="130" y="531" width="60" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.37647058820000001" green="0.1176470588" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="0.21176470589999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="14" maxValue="140" translatesAutoresizingMaskIntoConstraints="NO" id="CAi-Ud-3UF">
                                                 <rect key="frame" x="18" y="501" width="284" height="31"/>
-                                                <color key="minimumTrackTintColor" red="0.3411764706" green="0.85490196080000003" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="thumbTintColor" red="0.3411764706" green="0.85490196080000003" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.17254901959999999" green="0.38823529410000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="0.17254901959999999" green="0.38823529410000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="valueChanged:" destination="aMV-zt-NOa" eventType="valueChanged" id="9CT-pN-c34"/>
                                                 </connections>

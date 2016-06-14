@@ -68,7 +68,7 @@ extension PreviewViewController: UITableViewDelegate, UITableViewDataSource {
     cell.backgroundColor = UIColor.clearColor()
     cell.contentView.backgroundColor = UIColor.clearColor()
     cell.containerView.layer.cornerRadius = 8
-    cell.containerView.layer.borderColor = UIColor.grayColor().CGColor
+    cell.containerView.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.25).CGColor
     cell.containerView.layer.borderWidth = 1
     let fontName = previewFontNames[indexPath.row]
     cell.fontNameLabel.text = fontName.name
