@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var searchBar: UISearchBar!
+  @IBOutlet weak var previewButton: UIButton!
   
   var previewVC: PreviewViewController!
   var previewVCBySegue: PreviewViewController?
@@ -35,6 +36,12 @@ class MainViewController: UIViewController {
     loadFontsAndReloadTableData()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    
+    previewButton.hidden = UIScreen.mainScreen().bounds.width > 730
+  }
+  
   @IBAction func previewFontNames() {
     performSegueWithIdentifier("showDetail", sender: self)
   }
@@ -48,6 +55,12 @@ class MainViewController: UIViewController {
         previewVCBySegue?.fontSize = previewVC.fontSize
         previewVCBySegue?.text = previewVC.text
         previewVCBySegue?.previewFontNames = previewVC.previewFontNames
+        
+        //        let attributes:[String: AnyObject] = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        //        previewVCBySegue?.navigationItem.leftBarButtonItem?.setTitleTextAttributes(attributes, forState: .Normal)
+        
+        //        previewVCBySegue?.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+        //        previewVCBySegue?.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
       }
     }
   }
@@ -116,6 +129,17 @@ extension MainViewController {
     self.loadThirdPartyFonts()
     self.loadSystemFonts()
     filterFonts(searchBar.text)
+    
+    let checkedItems = previewVC.previewFontNames.filter { $0.isChecked }
+    for checkedItem in checkedItems {
+      allFontNames.forEach({ fontName in
+        fontName.fontNames.forEach({ (singleFontName) in
+          if singleFontName.name == checkedItem.name {
+            singleFontName.isChecked = checkedItem.isChecked
+          }
+        })
+      })
+    }
     
     tableView.reloadData()
   }

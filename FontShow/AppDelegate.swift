@@ -36,6 +36,11 @@ extension AppDelegate: UISplitViewControllerDelegate {
   func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
     guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
     guard let topAsDetailController = secondaryAsNavController.topViewController as? PreviewViewController else { return false }
-    return topAsDetailController.previewFontNames.count == 0
+    
+    if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+      return true
+    } else {
+      return topAsDetailController.previewFontNames.count == 0
+    }
   }
 }

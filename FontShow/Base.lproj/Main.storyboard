@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -67,6 +66,7 @@
                                                 <constraint firstItem="TKz-lb-ckp" firstAttribute="leading" secondItem="Byx-dv-dJm" secondAttribute="leading" id="sOL-EN-ynQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" red="1" green="0.21176470589999999" blue="0.36862745099999999" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="fontNameLabel" destination="TKz-lb-ckp" id="CmR-ht-Shs"/>
                                             <outlet property="previewTextLabel" destination="Byx-dv-dJm" id="j2i-mJ-Rj3"/>
@@ -111,47 +111,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lhK-1f-ad3"/>
                                 </connections>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmo-8j-MWc">
-                                <rect key="frame" x="256" y="614" width="54" height="54"/>
-                                <color key="backgroundColor" red="0.3411764706" green="0.85490196080000003" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Cmo-8j-MWc" secondAttribute="height" multiplier="1:1" id="aNn-8x-8m9"/>
-                                </constraints>
-                                <state key="normal" title="Preview">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cj5-MS-ag4">
+                                <rect key="frame" x="254" y="518" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="previewFontNames" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXE-24-90D"/>
+                                    <action selector="previewFontNames" destination="BYZ-38-t0r" eventType="touchUpInside" id="AUz-x2-Qcd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c9H-Fh-a6O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3CV-wD-oM5"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="10" id="DPn-Ph-sdM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cj5-MS-ag4" secondAttribute="bottom" constant="20" id="Cl1-7g-pKl"/>
                             <constraint firstAttribute="trailing" secondItem="c9H-Fh-a6O" secondAttribute="trailing" id="G3A-G8-H0J"/>
                             <constraint firstItem="uqq-wo-fib" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lnm-Hz-H6W"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cmo-8j-MWc" secondAttribute="bottom" constant="-100" id="aan-2K-oCu"/>
                             <constraint firstAttribute="trailing" secondItem="uqq-wo-fib" secondAttribute="trailing" id="bAk-tJ-9CC"/>
                             <constraint firstItem="uqq-wo-fib" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="c8W-r1-xY8"/>
                             <constraint firstItem="c9H-Fh-a6O" firstAttribute="top" secondItem="uqq-wo-fib" secondAttribute="bottom" id="hwa-Qj-uYx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c9H-Fh-a6O" secondAttribute="bottom" id="jsH-hx-GMk"/>
-                            <constraint firstAttribute="trailing" secondItem="Cmo-8j-MWc" secondAttribute="trailing" constant="10" id="vC6-SD-tLn"/>
+                            <constraint firstAttribute="trailing" secondItem="Cj5-MS-ag4" secondAttribute="trailing" constant="20" id="kqp-9B-cLE"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="DPn-Ph-sdM"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="DPn-Ph-sdM"/>
-                            </mask>
-                        </variation>
                         <variation key="widthClass=regular">
                             <mask key="constraints">
                                 <include reference="bAk-tJ-9CC"/>
-                                <include reference="aan-2K-oCu"/>
                             </mask>
                         </variation>
                     </view>
@@ -171,6 +153,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="previewButton" destination="Cj5-MS-ag4" id="0gY-YW-F3E"/>
                         <outlet property="searchBar" destination="uqq-wo-fib" id="7fW-qu-yhz"/>
                         <outlet property="tableView" destination="c9H-Fh-a6O" id="dRi-u2-uC5"/>
                         <segue destination="6He-Zs-ANa" kind="showDetail" identifier="showDetail" id="Ugg-h6-u3y"/>
