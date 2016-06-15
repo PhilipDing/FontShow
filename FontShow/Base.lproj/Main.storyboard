@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -111,9 +112,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lhK-1f-ad3"/>
                                 </connections>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cj5-MS-ag4">
-                                <rect key="frame" x="254" y="518" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cj5-MS-ag4">
+                                <rect key="frame" x="250" y="498" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="hDU-V5-5NE"/>
+                                    <constraint firstAttribute="width" secondItem="Cj5-MS-ag4" secondAttribute="height" multiplier="1:1" id="heO-YO-8tV"/>
+                                </constraints>
+                                <state key="normal" image="more"/>
                                 <connections>
                                     <action selector="previewFontNames" destination="BYZ-38-t0r" eventType="touchUpInside" id="AUz-x2-Qcd"/>
                                 </connections>
@@ -445,6 +450,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="more" width="66" height="66"/>
         <image name="settings" width="22" height="22"/>
         <image name="wifi" width="28" height="22"/>
     </resources>
