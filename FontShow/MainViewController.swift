@@ -200,6 +200,26 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     return fontName.seletable ? indexPath : nil
   }
   
+  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    let fontName = allFontNames[indexPath.section]
+    return fontName.isUserFont
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+      let fontName = allFontNames[indexPath.section].fontNames[indexPath.row]
+      
+      if let path = fontName.url {
+        do {
+          try NSFileManager.defaultManager().removeItemAtPath(path)
+          reload()
+        } catch {
+          NSLog("Cannot delete current file");
+        }
+      }
+    }
+  }
+  
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
     let fontName = allFontNames[indexPath.section].fontNames[indexPath.row]
