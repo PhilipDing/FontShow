@@ -21,6 +21,10 @@ $(document).ready(function() {
   $("#reload").click(function() {
     reload();
   });
+
+  $("#fileupload").change(function() {
+    $(".progress").show();
+  });
 });
 
 $(function () {
@@ -31,9 +35,11 @@ $(function () {
       if (data.result.result == "999999") {
         $("#errorMessage").html("File already exists.");
         $("#alerts").show();
+        $(".progress").hide();
       } else {
         $("#alerts").hide();
         $("#row").tmpl(data.result.result).appendTo('#listing');
+        $(".progress").hide();
       }
     }
   });

@@ -79,13 +79,10 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 }
 
 - (NSObject<HTTPResponse> *)httpResponseForMethod:(NSString *)method URI:(NSString *)path {
-  NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-  NSString *deviceName = [[UIDevice currentDevice] name];
   if ([method isEqualToString:@"GET"]) {
     if ([path isEqualToString:@"/"] || [path isEqualToString:@"index"]) {
       NSString *templatePath = [[config documentRoot] stringByAppendingPathComponent:@"index.html"];
-      NSDictionary *replacementDic = @{ @"Version": version, @"Device": deviceName };
-      return [[HTTPDynamicFileResponse alloc] initWithFilePath:templatePath forConnection:self separator:@"%" replacementDictionary:replacementDic];
+      return [[HTTPFileResponse alloc] initWithFilePath:templatePath forConnection:self];
     }
   } else if ([method isEqualToString:@"POST"]) {
     
