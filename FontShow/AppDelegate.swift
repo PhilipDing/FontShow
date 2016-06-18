@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     customizeUI()
     
+    UMAnalyticsConfig.sharedInstance().appKey = "5763e595e0f55a77ba0036d8"
+    MobClick.startWithConfigure(UMAnalyticsConfig.sharedInstance())
+    
     return true
   }
   

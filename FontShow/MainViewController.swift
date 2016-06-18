@@ -55,12 +55,6 @@ class MainViewController: UIViewController {
         previewVCBySegue?.fontSize = previewVC.fontSize
         previewVCBySegue?.text = previewVC.text
         previewVCBySegue?.previewFontNames = previewVC.previewFontNames
-        
-        //        let attributes:[String: AnyObject] = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        //        previewVCBySegue?.navigationItem.leftBarButtonItem?.setTitleTextAttributes(attributes, forState: .Normal)
-        
-        //        previewVCBySegue?.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
-        //        previewVCBySegue?.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
       }
     }
   }
@@ -97,13 +91,6 @@ extension MainViewController {
     // load files from itunes
     if let itunesPath = Constants.DocumentsPath {
       fontNames += loadThirdPartyFonts(itunesPath)
-    }
-    
-    // load files form wifi
-    var wifiPath: NSString? = Constants.DocumentsPath
-    wifiPath = wifiPath?.stringByAppendingPathComponent("upload")
-    if let wifiPath = wifiPath as? String {
-      fontNames += loadThirdPartyFonts(wifiPath)
     }
     
     if fontNames.count == 0 {

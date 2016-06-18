@@ -1,21 +1,17 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <!--[if IE]>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>字体秀 | Font Show</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery.fileupload.css">
+    <link rel="stylesheet" href="css/jquery.fileupload-ui.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="js/jquery.jeditable.js"></script>
-    <script type="text/javascript" src="js/jquery.fileupload.js"></script>
-    <script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -23,25 +19,21 @@
         <h1>字体秀 | Font Show</h1>
       </div>
 
-      <div id="alerts">
+      <div id="alerts" style="display: none;">
         <div class="alert alert-danger alert-dismissable">
           <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>error: </strong>Failed retrieving contents of "/"
+          <strong>error: </strong><span id="errorMessage">Failed retrieving contents of "/"</span>
         </div>
       </div>
-
-      <p>Drag &amp; drop files on this window or use the "Upload Files…" button to upload new files.</p>
-
       <div class="btn-toolbar">
         <button type="button" class="btn btn-primary fileinput-button" id="upload-file">
           <span class="glyphicon glyphicon-upload"></span> Upload Files…
-          <input id="fileupload" type="file" name="files[]" multiple="">
+          <input id="fileupload" type="file" accept=".ttf,.otf,.ttc" name="files[]" multiple="" data-url="upload">
         </button>
 
         <button type="button" class="btn btn-default" id="reload">
           <span class="glyphicon glyphicon-refresh"></span> Refresh
         </button>
-
       </div>
 
       <div class="panel panel-default">
@@ -51,26 +43,29 @@
 
         <table class="table table-striped">
           <tbody id="listing">
-            <tr class="row-file">
-              <td class="column-name"><p>%FileName%</p></td>
-              <td class="column-delete">
-                <button type="button" class="btn btn-danger btn-xs button-delete">
-                  <span class="glyphicon glyphicon-trash"></span>
-                </button>
-              </td>
-            </tr>
           </tbody>
         </table>
 
       </div>
 
-      <p class="footer">字体秀 | Font Show %Version%</p>
+      <p class="footer">字体秀 | Font Show V%Version%</p>
     </div>
 
+    <div id="div_demo"></div>
 
-<!--     <form action="upload.html" method="post" enctype="multipart/form-data" accept-charset="utf-8">
-      <input type="file" name="upload1"><br/>
-      <input type="submit" value="Submit">
-    </form> -->
-  </body>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="js/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/x-jquery-tmpl" id="row">
+      <tr class="row-file">
+        <td class="column-name"><p>${fileName}</p></td>
+      </tr>
+    </script>
+ </body>
 </html>

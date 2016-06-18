@@ -8,3 +8,4 @@
 
 #import "ConnectionManager.h"
 #import "DeviceInfo.h"
+#import "UMMobClick/MobClick.h"

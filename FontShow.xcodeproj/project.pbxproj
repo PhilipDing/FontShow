@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		993C55DC1D092041007BA37B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993C55DB1D092041007BA37B /* Constants.swift */; };
+		9955F3A51D14201C009AFFAB /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955F3A41D14201C009AFFAB /* UMMobClick.framework */; };
+		9955F3A71D142077009AFFAB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955F3A61D142077009AFFAB /* CoreTelephony.framework */; };
+		9955F3A91D142081009AFFAB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955F3A81D142081009AFFAB /* libz.tbd */; };
+		9955F3AB1D142091009AFFAB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955F3AA1D142091009AFFAB /* libsqlite3.tbd */; };
 		997E53211D04887800CBD4B8 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E53201D04887800CBD4B8 /* PreviewViewController.swift */; };
 		99D951A41D09C0B5003C321C /* UIFontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D951A31D09C0B5003C321C /* UIFontExt.swift */; };
 		99E0CBD11D0EE7B7001E5BD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99E0CBD31D0EE7B7001E5BD8 /* InfoPlist.strings */; };
@@ -57,6 +61,10 @@
 
 /* Begin PBXFileReference section */
 		993C55DB1D092041007BA37B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9955F3A41D14201C009AFFAB /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = FontShow/UMMobClick.framework; sourceTree = "<group>"; };
+		9955F3A61D142077009AFFAB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9955F3A81D142081009AFFAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		9955F3AA1D142091009AFFAB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		997E53201D04887800CBD4B8 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		99D951A31D09C0B5003C321C /* UIFontExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExt.swift; sourceTree = "<group>"; };
 		99E0CBD21D0EE7B7001E5BD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -143,6 +151,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9955F3AB1D142091009AFFAB /* libsqlite3.tbd in Frameworks */,
+				9955F3A91D142081009AFFAB /* libz.tbd in Frameworks */,
+				9955F3A71D142077009AFFAB /* CoreTelephony.framework in Frameworks */,
+				9955F3A51D14201C009AFFAB /* UMMobClick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +173,10 @@
 		99F469801D0469DC00540B25 = {
 			isa = PBXGroup;
 			children = (
+				9955F3AA1D142091009AFFAB /* libsqlite3.tbd */,
+				9955F3A81D142081009AFFAB /* libz.tbd */,
+				9955F3A41D14201C009AFFAB /* UMMobClick.framework */,
+				9955F3A61D142077009AFFAB /* CoreTelephony.framework */,
 				99F4698B1D0469DC00540B25 /* FontShow */,
 				99F4698A1D0469DC00540B25 /* Products */,
 			);
@@ -601,6 +617,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FontShow",
+				);
 				INFOPLIST_FILE = FontShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -614,6 +634,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FontShow",
+				);
 				INFOPLIST_FILE = FontShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
