@@ -181,7 +181,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RV1-P4-fnc">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="454"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fontNameCell" rowHeight="130" id="KLR-aR-mfF" customClass="FontNameCell" customModule="FontShow" customModuleProvider="target">
@@ -201,14 +201,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vR8-Uu-zqo">
-                                                            <rect key="frame" x="0.0" y="36.5" width="288" height="1"/>
+                                                            <rect key="frame" x="0.0" y="36" width="288" height="1"/>
                                                             <color key="backgroundColor" red="0.70196078431372544" green="0.70196078431372544" blue="0.70196078431372544" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="RdV-DD-dcp"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku1-Mj-cml">
-                                                            <rect key="frame" x="10" y="49.5" width="268" height="40.5"/>
+                                                            <rect key="frame" x="10" y="49" width="268" height="40.5"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -252,13 +252,38 @@
                                     <outlet property="delegate" destination="M59-7y-0hT" id="8J6-5l-e1J"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naI-aQ-iD0" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="J4f-KI-68z"/>
+                                    <constraint firstAttribute="height" constant="50" id="Zql-fC-X4v"/>
+                                </constraints>
+                            </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="q5K-kB-dpB" firstAttribute="top" secondItem="RV1-P4-fnc" secondAttribute="bottom" id="Aev-nF-QGz"/>
+                            <constraint firstItem="naI-aQ-iD0" firstAttribute="top" secondItem="RV1-P4-fnc" secondAttribute="bottom" id="5fd-iQ-coR"/>
+                            <constraint firstItem="RV1-P4-fnc" firstAttribute="top" secondItem="naI-aQ-iD0" secondAttribute="bottom" id="I2X-um-cxz"/>
+                            <constraint firstItem="q5K-kB-dpB" firstAttribute="top" secondItem="naI-aQ-iD0" secondAttribute="bottom" id="NC5-2j-0oG"/>
+                            <constraint firstItem="naI-aQ-iD0" firstAttribute="leading" secondItem="Zl8-Gd-zAD" secondAttribute="leading" id="c3f-OB-bnL"/>
+                            <constraint firstAttribute="trailing" secondItem="naI-aQ-iD0" secondAttribute="trailing" id="di6-0c-jDw"/>
+                            <constraint firstItem="naI-aQ-iD0" firstAttribute="centerX" secondItem="Zl8-Gd-zAD" secondAttribute="centerX" id="hm9-LO-XKS"/>
                             <constraint firstItem="RV1-P4-fnc" firstAttribute="leading" secondItem="Zl8-Gd-zAD" secondAttribute="leading" id="loJ-nI-UND"/>
+                            <constraint firstItem="q5K-kB-dpB" firstAttribute="top" secondItem="RV1-P4-fnc" secondAttribute="bottom" id="nOv-ng-RCu"/>
                             <constraint firstAttribute="trailing" secondItem="RV1-P4-fnc" secondAttribute="trailing" id="pUG-L1-zQG"/>
+                            <constraint firstItem="naI-aQ-iD0" firstAttribute="top" secondItem="QfD-hE-Be6" secondAttribute="bottom" id="peo-At-uvK"/>
                             <constraint firstItem="RV1-P4-fnc" firstAttribute="top" secondItem="QfD-hE-Be6" secondAttribute="bottom" id="tPM-P6-UEx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5fd-iQ-coR"/>
+                                <exclude reference="c3f-OB-bnL"/>
+                                <exclude reference="di6-0c-jDw"/>
+                                <exclude reference="tPM-P6-UEx"/>
+                                <exclude reference="NC5-2j-0oG"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="NiT-Kk-Ytn">
                         <barButtonItem key="rightBarButtonItem" image="settings" id="AMe-Up-D01">
@@ -272,6 +297,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="bannerView" destination="naI-aQ-iD0" id="PHx-PG-QA0"/>
                         <outlet property="tableView" destination="RV1-P4-fnc" id="d2c-UI-bLt"/>
                     </connections>
                 </viewController>

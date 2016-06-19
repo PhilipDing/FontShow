@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,12 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UMAnalyticsConfig.sharedInstance().appKey = "5763e595e0f55a77ba0036d8"
     MobClick.startWithConfigure(UMAnalyticsConfig.sharedInstance())
     
+    FIRApp.configure()
+    
     return true
   }
   
   func customizeUI() {
     UIApplication.sharedApplication().statusBarStyle = .LightContent
     UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
+    
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
   }
 }
 

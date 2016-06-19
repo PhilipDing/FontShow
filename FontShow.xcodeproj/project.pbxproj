@@ -13,6 +13,7 @@
 		9955F3A91D142081009AFFAB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955F3A81D142081009AFFAB /* libz.tbd */; };
 		9955F3AB1D142091009AFFAB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955F3AA1D142091009AFFAB /* libsqlite3.tbd */; };
 		997E53211D04887800CBD4B8 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E53201D04887800CBD4B8 /* PreviewViewController.swift */; };
+		99B0A6D91D1630CB00B6E642 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99B0A6D81D1630CB00B6E642 /* GoogleService-Info.plist */; };
 		99D951A41D09C0B5003C321C /* UIFontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D951A31D09C0B5003C321C /* UIFontExt.swift */; };
 		99E0CBD11D0EE7B7001E5BD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99E0CBD31D0EE7B7001E5BD8 /* InfoPlist.strings */; };
 		99E0CBD71D0F0BD8001E5BD8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99E0CBD91D0F0BD8001E5BD8 /* Localizable.strings */; };
@@ -57,15 +58,19 @@
 		99F9FD641D0AF0FD00ADADB8 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 99F9FD631D0AF0FD00ADADB8 /* web */; };
 		99F9FD681D0AFDAE00ADADB8 /* DeviceInfo.h in Sources */ = {isa = PBXBuildFile; fileRef = 99F9FD671D0AFDAE00ADADB8 /* DeviceInfo.h */; };
 		99F9FD6A1D0B003600ADADB8 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F9FD691D0B003600ADADB8 /* DeviceInfo.m */; };
+		CD34EDB73BFD2F7BDD544189 /* Pods_FontShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2367D5E97C2A977F68216F9F /* Pods_FontShow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2367D5E97C2A977F68216F9F /* Pods_FontShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FontShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7380859A206C6C0986CDC8D2 /* Pods-FontShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontShow.release.xcconfig"; path = "Pods/Target Support Files/Pods-FontShow/Pods-FontShow.release.xcconfig"; sourceTree = "<group>"; };
 		993C55DB1D092041007BA37B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9955F3A41D14201C009AFFAB /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = FontShow/UMMobClick.framework; sourceTree = "<group>"; };
 		9955F3A61D142077009AFFAB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9955F3A81D142081009AFFAB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9955F3AA1D142091009AFFAB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		997E53201D04887800CBD4B8 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		99B0A6D81D1630CB00B6E642 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99D951A31D09C0B5003C321C /* UIFontExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExt.swift; sourceTree = "<group>"; };
 		99E0CBD21D0EE7B7001E5BD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		99E0CBD41D0EE7C7001E5BD8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 		99F9FD631D0AF0FD00ADADB8 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 		99F9FD671D0AFDAE00ADADB8 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
 		99F9FD691D0B003600ADADB8 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
+		BFAABC6F4AD52BFEFC571DA0 /* Pods-FontShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontShow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FontShow/Pods-FontShow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,12 +161,30 @@
 				9955F3A91D142081009AFFAB /* libz.tbd in Frameworks */,
 				9955F3A71D142077009AFFAB /* CoreTelephony.framework in Frameworks */,
 				9955F3A51D14201C009AFFAB /* UMMobClick.framework in Frameworks */,
+				CD34EDB73BFD2F7BDD544189 /* Pods_FontShow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AA2FF97CAC0FD3E15C5FFF2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFAABC6F4AD52BFEFC571DA0 /* Pods-FontShow.debug.xcconfig */,
+				7380859A206C6C0986CDC8D2 /* Pods-FontShow.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0E44F6652EA55C5D159F3422 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2367D5E97C2A977F68216F9F /* Pods_FontShow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		993C55DA1D092034007BA37B /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +203,8 @@
 				9955F3A61D142077009AFFAB /* CoreTelephony.framework */,
 				99F4698B1D0469DC00540B25 /* FontShow */,
 				99F4698A1D0469DC00540B25 /* Products */,
+				0AA2FF97CAC0FD3E15C5FFF2 /* Pods */,
+				0E44F6652EA55C5D159F3422 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +228,7 @@
 				99F469901D0469DC00540B25 /* Main.storyboard */,
 				99F469931D0469DC00540B25 /* Assets.xcassets */,
 				99F469951D0469DC00540B25 /* LaunchScreen.storyboard */,
+				99B0A6D81D1630CB00B6E642 /* GoogleService-Info.plist */,
 				99F469981D0469DC00540B25 /* Info.plist */,
 				99F9FCE21D0AD38200ADADB8 /* FontShow-Bridging-Header.h */,
 				99E0CBD31D0EE7B7001E5BD8 /* InfoPlist.strings */,
@@ -376,9 +403,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99F4699B1D0469DC00540B25 /* Build configuration list for PBXNativeTarget "FontShow" */;
 			buildPhases = (
+				70446119DF91B9E84A77D013 /* 📦 Check Pods Manifest.lock */,
 				99F469851D0469DC00540B25 /* Sources */,
 				99F469861D0469DC00540B25 /* Frameworks */,
 				99F469871D0469DC00540B25 /* Resources */,
+				94E9DB5A1A225E231825DF9C /* 📦 Embed Pods Frameworks */,
+				97F1FB5ABBB0983903887F6F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,7 +431,7 @@
 				TargetAttributes = {
 					99F469881D0469DC00540B25 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 5VSVR2TS83;
+						DevelopmentTeam = 2R2JX65CN9;
 					};
 				};
 			};
@@ -436,12 +466,61 @@
 				99E0CBD71D0F0BD8001E5BD8 /* Localizable.strings in Resources */,
 				99F469941D0469DC00540B25 /* Assets.xcassets in Resources */,
 				99F469921D0469DC00540B25 /* Main.storyboard in Resources */,
+				99B0A6D91D1630CB00B6E642 /* GoogleService-Info.plist in Resources */,
 				99F9FD601D0AEFB800ADADB8 /* README.txt in Resources */,
 				99F9FD581D0AEFB800ADADB8 /* About.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70446119DF91B9E84A77D013 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94E9DB5A1A225E231825DF9C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FontShow/Pods-FontShow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97F1FB5ABBB0983903887F6F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FontShow/Pods-FontShow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99F469851D0469DC00540B25 /* Sources */ = {
@@ -615,8 +694,11 @@
 		};
 		99F4699C1D0469DC00540B25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFAABC6F4AD52BFEFC571DA0 /* Pods-FontShow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FontShow",
@@ -624,16 +706,20 @@
 				INFOPLIST_FILE = FontShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.philipding.FontShow;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.philipding.FontShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		99F4699D1D0469DC00540B25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7380859A206C6C0986CDC8D2 /* Pods-FontShow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FontShow",
@@ -641,8 +727,9 @@
 				INFOPLIST_FILE = FontShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.philipding.FontShow;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.philipding.FontShow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

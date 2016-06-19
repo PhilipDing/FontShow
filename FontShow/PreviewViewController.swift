@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class PreviewViewController: UIViewController {
   
@@ -28,14 +29,23 @@ class PreviewViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
     self.navigationItem.title = NSLocalizedString("Preview", comment: "")
+    
     tableView.estimatedRowHeight = 110
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.reloadData()
+    
+    bannerView.hidden = true
+    bannerView.adUnitID = "ca-app-pub-1689553803429414/2696152282"
+    bannerView.delegate = self
+    bannerView.rootViewController = self
+    bannerView.loadRequest(GADRequest())
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -48,6 +58,12 @@ class PreviewViewController: UIViewController {
         settingsVC.delegate = self
       }
     }
+  }
+}
+
+extension PreviewViewController: GADBannerViewDelegate {
+  func adViewDidReceiveAd(bannerView: GADBannerView!) {
+    bannerView.hidden = false
   }
 }
 
